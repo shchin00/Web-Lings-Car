@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Dashboard</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/948cc87750.js"></script>
+    
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            text-decoration: none;
+        }
+
+        body{
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background-color: rgb(242, 242, 234);
+        }
+
+        img{
+            width: 100px;
+        }
+
+
+        .container{
+            display: grid;
+            width: 99%;
+            margin: 0 auto;
+            grid-template-columns: 14rem auto 23rem;
+        }
+
+        aside{
+        height: 100vh;    
+        }
+
+        aside .top{
+            display: flex;
+            align-items: left;
+            justify-content: center;    
+            background: url("lingscar.jpeg") transparent;
+            height: 10vh;
+            width: 80%;
+            margin-left: 0rem;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        aside .logo{
+            display: flex;
+            gap: 1rem;
+        }
+
+        aside .side_link{
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            background-color: rgb(235, 199, 245);
+            width: 180px;
+            height: 87vh;
+            margin: 10px;
+            box-shadow: 0px 3px 25px 1px rgb(198, 193, 193);;
+        }
+
+        aside .side_link a{
+            display: flex;
+            margin: 20px 20px;
+            align-items: center;
+            gap: 10px;
+            color: black;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+
+        aside .side_link a:last-child{
+            position: absolute;
+            bottom: 4px;
+            width: 100%;
+        }
+
+        aside .side_link a:hover{
+            font-size: 15px;
+        }
+
+        .profile{
+            position: absolute;
+            top: -15px;
+            right: 3rem;
+            width: 80px;
+            clip-path: circle();
+        }
+
+        main h1{
+            margin: 3px 10px;
+            display: inline;
+        }
+
+        main .date{
+            display: block;
+            width: 15%;
+            background: #a2f0df;
+            border-radius: 0.4rem;
+            padding: 3px 5px;
+            margin: 0px 10px;
+        }
+
+        main .date input[type="date"]{
+            background: transparent;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 100;
+        }
+
+        .column button{
+            display: block;
+            border-radius: 5px;
+            background: rgb(224, 218, 202);
+            margin: auto;
+            margin-top: 5px;
+            padding: 0px 10px;
+            transition: all 0.3s ease 0s;
+        }
+
+        .column button:hover{
+            padding: 0px 20px;
+        }
+
+        .insight{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .column{
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 25px;
+            background: #b5f0f8;
+            flex-basis: 35%;
+            margin: 7px 10px;
+            box-shadow: 0px 3px 25px 1px rgb(198, 193, 193);
+            transition: all 0.2s ease;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .column:hover{
+            box-shadow: none;
+        }
+
+
+        .right-side{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 6rem;
+
+        }
+
+        .right-side h1{
+            text-align: center;
+        }
+
+        .news{
+            border-radius: 10px;
+            box-sizing: border-box;
+            height: 40vh;
+            background:  rgb(242, 242, 234);
+            margin: 10px 10px;
+            box-shadow: 0px 3px 25px 1px rgb(198, 193, 193);
+            padding: 3px;
+        }
+
+
+        .right-side p{
+            text-align: justify;
+            margin: 3px 2rem;
+        }
+
+        #monitoring{
+            font-size: 50px;
+            color: red;
+            user-select: none;
+        }
+
+        #pie-chart{
+            font-size: 50px;
+            color: green;
+            user-select: none;
+        }
+
+        #database{
+            font-size: 50px;
+            color: blue;
+            user-select: none;
+        }
+
+        .iconcontainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0px 10px;
+            margin-top: 100px;
+            
+        }
+
+        .iconbox{
+            flex: 1;
+            padding: 30px 0px;
+            border: 2px solid #b0c4de;
+            border-right: none;
+        }
+
+        .iconbox:hover{
+            background-color: rgb(235, 199, 245);
+            color: white;
+            cursor: pointer;
+        }
+
+        .icontext{
+            font-size: 22px;
+            text-transform: uppercase;
+        }
+
+        .top img{
+            margin-top: 25px;
+            width: 150px;
+            height: 30px;
+        }
+
+  
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img class="logo" src="photo\lingscarslogo.png">
+                </div>  
+            </div>
+
+            <div  class="side_link">
+                <a href="#">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <h3>My Profile</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-outlined">insights</span>
+                    <h3>My Activity</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-outlined"> mail</span>
+                    <h3>Inbox</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-outlined">settings</span>
+                    <h3>Setting</h3>
+                </a>
+                <a href="Home.html">
+                    <span class="material-symbols-outlined">logout</span>
+                    <h3>Log out</h3>
+                </a>
+            </div>
+        </aside>
+    
+
+        <main>
+            <h1>My Dashboard</h1><h1 style="margin-left: 200px;">Administrator</h1>
+
+            <img src="photo\jerry.jpg" class="profile">
+            <div class="date">
+                <input type="date"> 
+            </div>
+
+            <div class="insight">
+                <div class="column">
+                    <span class="material-symbols-outlined" id="monitoring">monitoring</span>
+                    <h2>Most Leased Car</h2>
+                    <h3>Honda</h3>
+                    <img src="photo\Car1.png">
+                </div>
+
+                <div class="column">
+                    <span class="material-symbols-outlined" id="pie-chart">person</span>
+                    <h2>Registered Member</h2>
+                    <h3 style="margin-top: 28px;">78</h3>
+                </div>
+
+                <div class="column">
+                    <span class="material-symbols-outlined" id="database"> database</span>
+                    <h2>Sales</h2>
+                    <h3 style="margin-top: 28px;">&#163; 20065.73</h3>
+                </div>
+            </div>
+
+            <div class="section-2">  
+
+                <div class="iconcontainer">
+                    <div class="iconbox" onclick="location.href='MemberList.html'">
+                        <i class="fa fa-id-card-o fa-4x" aria-hidden="true"></i>
+                        <h3 class="icontext">
+                            Member List
+                        </h3>
+                    </div>
+                            
+                    <div class="iconbox" onclick="location.href='ItemList.html'">
+                        <i class="fa fa-car fa-4x" aria-hidden="true"></i>
+                        <h3 class="icontext">
+                            Item List
+                        </h3>
+                    </div>
+                    
+                                
+                    <div class="iconbox" style="border-right:2px solid #b0c4de" onclick="location.href='Transaction summary.html'">
+                        <i class="fa fa-list-alt fa-4x" aria-hidden="true"></i>
+                        <h3 class="icontext">
+                            Transaction Summary
+                        </h3> 
+                    </div>
+                                    
+                </div>
+
+            </div>
+
+        </main>
+
+        <div class="right-side">
+
+            <div class="news">
+                 <h1>Recent News <span class="material-symbols-outlined">android_messages</span></h1>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi voluptates sed ipsa laborum nulla eligendi alias, blanditiis quaerat ullam porro quisquam, impedit assumenda esse, similique veritatis ab recusandae!</p> 
+            </div>
+
+            <div class="news">
+                <h1>Latest Review <span class="material-symbols-outlined">android_messages</span></h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error commodi exercitationem dignissimos libero, quae quis tempora, similique fugit, culpa qui non quidem officia iusto sint at ipsum rerum sit aperiam!</p>
+            </div>
+        </div>
+    </div>
+
+  
+</body>
+</html>

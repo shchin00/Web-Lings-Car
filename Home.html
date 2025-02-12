@@ -1,0 +1,192 @@
+<?php
+    session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINGsCARS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style1.css">
+   
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="photo\lingscarslogo.png">
+        <nav>
+            <ul class ="nav_link">
+                <li><a href="Home.html"><i class=" fa fa-fw fa-home"></i>Home</a></li>
+                <li><a href="member_dashboard.html"><i class=" fa fa-dashboard"></i> Dashboard</a></li>
+                <li><a href="Item.html">Cars</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropbtn">Category</a>
+                     <div class="dropdown-content">
+                        <a href="#">element</a>
+                        <a href="#">element</a>
+                        <a href="#">element</a>
+                     </div>
+                </li>
+                <li><a href="Cartpage.html">Cart</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+            <div class="dropdown">  
+            <button>Log In</button>
+             <div class="dropdown-content">
+               <a  onclick="openPopup()">Log in</a>
+               <a  onclick="openADPopup()">Log in as Dealer</a>
+               <a href="logout_action_page.php">Log Out</a>
+             </div>
+        </div>
+    </header>
+
+    <!-- Poster -->
+    <div class="poster">
+        <h1>LingsCar.com</h1>
+        <p>Your No.1 Car Leasing Service in UK</p>
+        <img src="photo\Car9.png">
+    
+
+    <div class="popup" id="popup">
+        <h1>Log In</h1>
+        <form  method="post" action="Login_action_page.php" enctype="multipart/form-data" name ="myForm" id="myForm" onsubmit="return validate()">
+            <label for ="email">Email:</label>
+            <input type="text" id ="email" name="email"><br><br>
+            <label for ="password">Password: </label>
+            <input type="text" id="password" name="password"><br><br>
+            <button type="submit" name ="submit" value ="Accept">Log In</button>
+        </form>
+         <form>
+            <button onclick="closePopup()">Cancel</button>
+        </form>
+        
+        <a href="LogIn.html" target="_blank">Don't have an account? Click here to register</a>
+     
+    </div>
+
+    <div class="ADpopup" id="ADpopup">
+        <h1>Log In</h1>
+        <form method="post" action="Login_action_page.php" enctype="multipart/form-data" name ="myForm" id="myForm" onsubmit="return validate()">
+            <label for ="email">Email:</label>
+            <input type="text" id ="email" name="email"><br><br>
+            <label for ="password">Password: </label>
+            <input type="text" id="password" name="password"><br><br>
+            <button onclick="closeADPopup()" onmousedown="location.href='Administrator Dashboard.html'">Log In</button>
+        </form>
+         <form>
+            <button onclick="closeADPopup()">Cancel</button>
+        </form>
+    
+    </div>
+    
+    <!-- First Section -->
+    <section class="container">
+        <h1>Hot Sports Car</h1>
+        <div class="row">
+            <div class="column">
+                <h3>Bugatti Chiron</h3>
+                <img class="logo" src="photo\Car3.png">
+                <p>£600/mth</p>
+                <a class="btn" href="#">Info</a>
+            </div>
+
+            <div class="column">
+                <h3>Bugatti Chiron</h3>
+                <img class="logo" src="photo\Car3.png">
+                <p>£600/mth</p>
+                <a class="btn" href="#">Info</a>
+            </div>
+
+            <div class="column">
+                <h3>Ferrari</h3>
+                <img class="logo" src="photo\Car4.png">
+                <p>£1000/mth</p>
+                <a class="btn" href="#">Info</a>
+            </div>
+
+            <div class="column">
+                <h3>Ferrari</h3>
+                <img class="logo" src="photo\Car4.png">
+                <p>£800/mth</p>
+                <a class="btn" href="#">Info</a>
+            </div>
+        </div>
+     </section>
+
+    <!-- Second Section -->
+     <section class="container">
+        <h1>Hot Renting Cars</h1>
+        <div class="row">
+            <div class="column">
+                <h3>Mercedes-Benz GLC coupe</h3>
+                <img class="logo" src="photo\Car5.png">
+                <p>£400/mth</p>
+                <a class="btn" href="#">Info</a>
+            </div>
+
+            <div class="column">
+                <h3>Mercedes-Benz GLC coupe</h3>
+                <img class="logo" src="photo\Car5.png">
+                <p>£400/mth</p>
+                <a class="btn" href="#">Info</a>
+            </div>
+
+            <div class="column">
+                <h3>Ford Mustang GT</h3>
+                <img class="logo" src="photo\Car6.png">
+                <p>£350/mth</p>
+                <a class="btn" href="#">Info</a>
+            </div>
+
+            <div class="column">
+                <h3>Ford Mustang GT</h3>
+                <img class="logo" src="photo\Car6.png">
+                <p>£350/mth</p>
+                <a class="btn" href="#">Info</a>
+            </div>
+        </div>
+     </section>
+
+     <footer class="footer">
+         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam dolor aliquid, alias nesciunt voluptates odio veniam maxime natus rem cum. 
+             <br>Voluptatibus recusandae veniam iste quo quod ab soluta provident animi?</p>
+     </footer>
+     
+     <script>
+        let popup = document.getElementById("popup");
+        let blur = document.getElementById("blur");
+        let ADpopup = document.getElementById("ADpopup");
+       
+
+        function openPopup(){
+            popup.classList.add("open-popup");
+            blur.classList.add("blur");
+        }
+
+        function closePopup(){
+            popup.classList.remove("open-popup");
+            blur.classList.remove("blur");
+        }
+
+        function openADPopup(){
+            ADpopup.classList.add("open-popup");
+            blur.classList.add("blur");
+        }
+
+        function closeADPopup(){
+            ADpopup.classList.remove("open-popup");
+            blur.classList.remove("blur");
+        }
+
+  
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+        <meta name="description" content="CartPage">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title style="font-family: 'Times New Roman', Times, serif;">Receipt</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body{
+            background: #fff;
+            min-height: 100vh;
+            vertical-align: middle;
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 100px;
+        }
+
+        .interface{
+            width: 450px;
+            box-shadow: 0 4px 8px 0 rgb(0, 0, 0);
+            border-radius: 1rem;
+            border: transparent;
+        }
+
+        .row{
+            margin: 0;
+        }
+        
+        .leas{
+            padding: 1vh 0;
+        }
+
+        img{
+            width: 10rem;
+            margin-left: 130px;
+        }
+
+        .aligncenter {
+            text-align: center;
+        }
+
+        .alignright {
+            text-align: right;
+        }
+
+        .alignleft {
+            text-align: left;
+        }
+
+        .invoice {
+            text-align: left;
+        }
+        
+        .invoice td {
+            padding: 10px 0;
+        }
+
+        .invoice .invoice-items {
+            width: 420px;
+        }
+
+        .invoice .invoice-items td {
+            border-top: #eee 1px solid;
+        }
+        
+        .invoice .invoice-items .total td {
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+            font-weight: 700;
+        }
+
+        .back{
+            background-color: #000;
+            border-color: #000;
+            color: white;
+            width: 340px;
+            font-size: 2ch;
+            margin-left: 40px;
+            margin-top: 4vh;
+            padding: 1vh;
+            border-radius: 0;
+        }
+
+        .back:hover{
+            color: white;
+        }
+    </style>
+</head>
+
+    <body>
+        <main>
+            <div class="interface">
+                <div class="col-md-8">
+                    <div><img class="img" src="photo\lingscarslogo.png"></div>
+                    <div class="title">
+                        <tr>
+                            <td class="content-block">
+                                <table class="invoice">
+                                    <tr>
+                                    <td class="aligncenter"><b>Purchase Successfully!</b></td>
+                                    </tr>
+                                    <tr>
+                                    <td class="aligncenter"><b>Thank you for choosing our service!</b></td>
+                                    </tr>
+                                    <tbody><tr>
+                                        <div class="leas"><td>Willian Voom<br>#39789<br>July 07 2022</td></div>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table class="invoice-items" cellpadding="0" cellspacing="0">
+                                                <tbody><tr>
+                                                    <td>BMW 2 Series Gran Coupé</td>
+                                                    <td class="alignright">&#163;353.84/month</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ford Mustang Coupé</td>
+                                                    <td class="alignright">&#163;711.68/month</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Audi A1 Sportback</td>
+                                                    <td class="alignright">&#163;239.29/month</td>
+                                                </tr>
+                                                <tr class="total">
+                                                    <td class="alignright"><b>Total</b></td>
+                                                    <td class="alignright"><b>&#163;1304.81/month</b></td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                            </td>
+                        </tr>
+                    </div>
+                    <a href="member_dashboard.html"><button class="back">Back to Dashboard</button></a><br><br><br>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

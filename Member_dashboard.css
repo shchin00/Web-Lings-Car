@@ -1,0 +1,220 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: rgb(242, 242, 234);
+}
+
+img{
+    width: 100px;
+}
+
+
+.container{
+    display: grid;
+    width: 99%;
+    margin: 0 auto;
+    grid-template-columns: 14rem auto 23rem;
+}
+
+aside{
+height: 100vh;    
+}
+
+aside .top{
+    display: flex;
+    align-items: left;
+    justify-content: center;    
+    background: url("lingscar.jpeg") transparent;
+    height: 10vh;
+    width: 80%;
+    margin-left: 0rem;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+aside .logo{
+    display: flex;
+    gap: 1rem;
+}
+
+aside .side_link{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: rgb(235, 199, 245);
+    width: 180px;
+    height: 87vh;
+    margin: 10px;
+    box-shadow: 0px 3px 25px 1px rgb(198, 193, 193);;
+}
+
+aside .side_link a{
+    display: flex;
+    margin: 20px 20px;
+    align-items: center;
+    gap: 10px;
+    color: black;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+aside .side_link a:last-child{
+    position: absolute;
+    bottom: 4px;
+    width: 100%;
+}
+
+aside .side_link a:hover{
+    font-size: 15px;
+}
+
+.profile{
+    position: absolute;
+    top: -15px;
+    right: 3rem;
+    width: 80px;
+    clip-path: circle();
+}
+
+main h1{
+    margin: 3px 10px;
+}
+
+main .date{
+    display: inline-block;
+    background: #a2f0df;
+    border-radius: 0.4rem;
+    padding: 3px 5px;
+    margin: 0px 10px;
+}
+
+main .date input[type="date"]{
+    background: transparent;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+}
+
+.column button{
+    display: block;
+    border-radius: 5px;
+    background: rgb(224, 218, 202);
+    margin: auto;
+    margin-top: 5px;
+    padding: 0px 10px;
+    transition: all 0.3s ease 0s;
+}
+
+.column button:hover{
+    padding: 0px 20px;
+}
+
+.insight{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+ .column{
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 25px;
+    background: #b5f0f8;
+    flex-basis: 35%;
+    margin: 7px 10px;
+    box-shadow: 0px 3px 25px 1px rgb(198, 193, 193);
+    transition: all 0.2s ease;
+}
+
+.column:hover{
+    box-shadow: none;
+}
+
+
+.right-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6rem;
+
+}
+
+.right-side h1{
+    text-align: center;
+}
+
+.news{
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 40vh;
+    background:  rgb(242, 242, 234);
+    margin: 10px 10px;
+    box-shadow: 0px 3px 25px 1px rgb(198, 193, 193);
+    padding: 3px;
+}
+
+
+.right-side p{
+    text-align: justify;
+    margin: 3px 2rem;
+}
+
+#monitoring{
+    font-size: 30px;
+    color: red;
+    user-select: none;
+}
+
+#shopping-cart{
+    font-size: 30px;
+    color: green;
+    user-select: none;
+}
+
+#database{
+    font-size: 30px;
+    color: blue;
+    user-select: none;
+}
+
+.content-body{
+    width: 100%;
+    text-align: left;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgb(242, 242, 234);
+    box-shadow: 0px 3px 25px 1px rgb(198, 193, 193);
+    padding: 0.5rem;
+    margin: 0px 30px 10px 0px;
+}
+
+.content-body thead tr th{
+    padding: 5px 0px;
+}
+
+.content-body tbody tr td{
+    padding: 5px 5px;
+    border-bottom: 1px grey;
+}
+
+.content-body tbody tr:nth-of-type(odd){
+	background-color: rgb(248, 248, 239);;
+}
+
+.top img{
+    margin-top: 25px;
+    width: 150px;
+    height: 30px;
+}

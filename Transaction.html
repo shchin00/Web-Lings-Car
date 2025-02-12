@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+        <meta name="description" content="CartPage">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title style="font-family: 'Times New Roman', Times, serif;">Transaction Details</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body{
+            background: rgb(242, 242, 234);
+        }
+        main{
+            background: rgb(242, 242, 234);
+            vertical-align: middle;
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            
+        }
+
+        h1{
+            display: flex;
+            justify-content: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 60px;
+        }
+
+        .interface{
+            background: #fff;
+            width: 450px;
+            box-shadow: 0 4px 8px 0 rgb(0, 0, 0);
+            border-radius: 1rem;
+            border: transparent;
+        }
+
+        .leas{
+            padding: 1vh 0;
+        }
+
+        .aligncenter {
+            text-align: center;
+        }
+
+        .alignright {
+            text-align: right;
+        }
+
+        .alignleft {
+            text-align: left;
+        }
+
+        .Transaction {
+            text-align: left;
+        }
+
+        .Transaction td {
+            padding: 2px 0;
+        }
+
+        .Transaction .Transaction-items {
+            width: 420px;
+        }
+
+        .Transaction .Transaction-items td {
+            border-top: #eee 1px solid;
+        }
+
+        .Transaction .Transaction-items .total td {
+            border-top: 2px solid #333;
+            border-bottom: 2px solid #333;
+            font-weight: 700;
+        }
+
+        .backtoshop{
+            margin-left: 90px;
+            font-size: 15px;
+        }
+
+        .backtodashboard{
+            margin-left: 10px;
+            font-size: 15px;
+        }
+
+        .row{
+            margin: 1px;
+        }
+    </style>
+</head>
+    <body>
+        <h1>My Activity</h1>
+        <main>
+            <div class="interface">
+                <div class="col-md-8">    
+                    <tr>
+                        <td class="content-block">
+                            <table class="Transaction">
+                                <tbody><tr>
+                                    <div class="leas"><td>July 07 2022</td></div>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="Transaction-items" cellpadding="0" cellspacing="0">
+                                            <tbody><tr>
+                                                <td>BMW 2 Series Gran Coupé</td>
+                                                <td class="alignright">&#163;353.84/month</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ford Mustang Coupé</td>
+                                                <td class="alignright">&#163;711.68/month</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Audi A1 Sportback</td>
+                                                <td class="alignright">&#163;239.29/month</td>
+                                            </tr>
+                                            <tr class="total">
+                                                <td class="alignright"><b>Total</b></td>
+                                                <td class="alignright"><b>&#163;1304.81/month</b></td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td><br>
+                    </tr>
+                </div>
+                <div class="row">
+                    <a href= "Receipt.html"><div class ="backtoshop"><button>Check Receipt</button></div><br></a>
+                    <a href= "member_dashboard.html"><div class ="backtodashboard"><button>Back to Dashboard</button></div><br></a>
+                    </div>
+            </div><br><br><br>
+        </main>
+    </body>
+</html>

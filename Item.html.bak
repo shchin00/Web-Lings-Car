@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+		<title>Lings Car Item List</title>
+		<link rel="stylesheet" href="item.css" title="item">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+</style>
+</head>
+<body>
+<header>
+        <img class="logo" src="lingscar.jpeg">
+        <nav>
+            <ul class ="nav_link">
+                <li><a href="Home.html"><i class=" fa fa-fw fa-home"></i>Home</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropbtn">Category</a>
+                     <div class="dropdown-content">
+                        <a href="#">element</a>
+                        <a href="#">element</a>
+                        <a href="#">element</a>
+                     </div>
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class="card">
+	<img src="car\audi.jpg" alt="Audi A1" style="width:100%; height: 250px">
+	<h1>Audi A1</h1>
+	<p class="price">£239.29 /month</p>
+	<p>The Audi A1 is a luxurious and sporty-looking small hatch that gives the MINI a run for its money</p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+
+<div class="card1">
+	<img src="car\bmw.jpg" alt="Bmw X1 Estate" style="width:100%; height: 250px">
+	<h1>BMW X1 Estate</h1>
+	<p class="price1">£446.75 /month</p>
+	<p>As a SUV that’s good to drive and wears a desirable badge, the BMW X1 are a good choice</p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+<div class="card2">
+	<img src="car\honda.jpg" alt="Honda Civic" style="width:100%; height: 250px">
+	<h1>Honda Civic</h1>
+	<p class="price2">£387.31 /month</p>
+	<p>One of the most reliable cars in its class with consistently high ratings and outstanding features</p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+<div class="card3">
+	<img src="car\ford.jpg" alt="Ford Ranger" style="width:100%; height: 250px">
+	<h1>Ford Ranger</h1>
+	<p class="price3">£490.34 /month</p>
+	<p>The Ranger's turbocharged engine enables swift acceleration and good fuel economy, and it imparts the truck with impressive hauling and towing capability.</p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+<div class="card4">
+	<img src="car\mazda.jpg" alt="Mazda 6 Saloon" style="width:100%; height: 250px">
+	<h1>Mazda 6 Saloon</h1>
+	<p class="price4">£314.38 /month</p>
+	<p>A good midsize car with responsive steering, upscale cabin comes with an abundance of safety tech, and two peppy four-cylinder engine</p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+<div class="card5">
+	<img src="car\nissan.jpg" alt="Nissan Leaf S" style="width:100%; height: 250px">
+	<h1>Nissan Leaf S</h1>
+	<p class="price5">£281.52 /month</p>
+	<p>An electric cars with 100 percent eco-friendly since it does not emit toxic gases or smoke in the environment as it runs on a clean energy source.</p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+<div class="card6">
+	<img src="car\peugeot.jpg" alt="Peugeot 308" style="width:100%; height: 250px">
+	<h1>Peugeot 308</h1>
+	<p class="price6">£257.48 /month</p>
+	<p>A reasonably reliable car with plush interior, intuitive infotainment tech and comfortable cruising ability with tiny steering wheel</p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+<div class="card7">
+	<img src="car\toyota.jpg" alt="Toyota C-HR" style="width:100%; height: 250px">
+	<h1>Toyota C-HR</h1>
+	<p class="price7">£316.06 /month</p>
+	<p>A small SUV with cutting-edge safety technology, powerful hybrid system added to the powertrain range, good handling with comfortable seat/p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+<div class="card8">
+	<img src="car\suzuki.jpg" alt="Suzuki Swift" style="width:100%; height: 250px">
+	<h1>Suzuki Swift</h1>
+	<p class="price8">£200.06 /month</p>
+	<p>A small car with decent drive and reasonable practicality, that delivers good economy, punchy three-cylinder engine, and solid build quality.</p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+<div class="card9">
+	<img src="car\mercedes.jpg" alt="Mercedes GLA" style="width:100%; height: 250px">
+	<h1>Mercedes GLA</h1>
+	<p class="price9">£534.56 /month</p>
+	<p>A good luxury subcompact SUV with satisfying acceleration, good fuel economy, a balanced ride, have slick infotainment system and comfortable seating</p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+<div class="card10">
+	<img src="car\volvo.jpg" alt="Volvo S60 Saloon" style="width:100%; height: 250px">
+	<h1>Volvo S60 Saloon</h1>
+	<p class="price10">£577.24 /month</p>
+	<p>A good luxury small car that have two capable powertrain options: a fuel-efficient turbocharged engine and a muscular plug-in-hybrid setup</p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+<div class="card11">
+	<img src="car\vw.jpg" alt="VW T-Roc" style="width:100%; height: 250px">
+	<h1>VW T-Roc</h1>
+	<p class="price11">£271.16 /month</p>
+	<p>A big car that have feels properly premium on the front seat, higher gears, comfortable car cruise, ample storage spaces, impressive ride and handling dynamics </p>
+	<p><button>Add to Cart</button></p>
+</div>
+
+</body>
+</html>

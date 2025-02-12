@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Transaction Record Summary</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="Summary of transaction records for LINGsCARS car leasing services">
+        <meta name="keywords" content="LINGsCARS, transaction record, summary">
+        <meta name="author" content="Chong Kha Fung">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            body{
+                margin: 0;
+            }
+
+            body p{
+                font-size: 18px;
+            }
+
+            header{
+                padding: 1px 0px;
+            }
+
+            .flexcontainer{
+                display: flex;
+            }
+
+            .leftbuttonbox{
+                flex: 1;
+
+            }
+
+            .leftbuttonbox p{
+                padding: 10px 0px;
+                text-align: center;
+            }
+
+            main{
+                margin-left: 45px;
+                margin-right: 45px;
+            }
+
+            [id^='button_']{
+                background-color: #ede4e3;
+                margin-right: 130px;
+                margin-bottom: 30px;
+            }
+
+            [id^='button_']:hover{
+                background-color: #b90e0a;
+                color: white;
+                cursor: pointer;
+            }
+
+            .rightcontentbox{
+                flex: 3;
+            }
+
+            .middlebox{
+                margin-top: 50px;
+                margin-bottom: 70px;
+                padding-bottom: 25px;
+            }
+
+            table,th,td{
+                padding: 10px;
+            }
+
+            table th{
+                background-color: #ede4e3;
+                border-bottom: 1px solid #3c3431;
+                border-top: 1px solid #ede4e3;
+                border-right: 1px solid #ede4e3;
+                border-left: 1px solid #ede4e3;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            table tr:last-child td {
+                border: 0;
+            }
+
+            table td:last-child {
+                border: none;
+            }
+
+            table td,
+            table tr:last-child td:last-child,
+            table tr:last-child td:nth-last-child(2) {
+                border: 1px solid #3c3431;
+            }
+
+            table tr td:nth-last-child(2),
+            table tr td:nth-last-child(3),
+            table tr:last-child td:last-child
+            {
+                text-align: center;
+            }
+
+            input, button:hover{
+                cursor: pointer;
+            }
+
+            input{
+                height: 30px;
+            }
+
+            .generatebutton{
+                height: 35px;
+                font-weight: bold;
+            }
+
+            #dailyreport,
+            #monthlyreport,
+            #weeklyreport,
+            #monthdate,
+            #fullmonthdate,
+            #dailysummary,
+            #weeklysummary,
+            #monthlysummary{
+                display: none;
+            }
+
+            #transactionreport{
+                display: none;
+            }
+
+            .logo{
+                margin: 0px 80px;
+                margin-top: 80px;
+                display: flex;
+                justify-content: center;
+                border-bottom: 1px solid #dcdcdc;
+            }
+
+            .reportcontent{
+                margin: 30px 80px 0px;
+            }
+
+            .reportcontent p{
+                font-size: 14px;
+            }
+
+            .uppercontent,
+            .lowercontent{
+                margin-top: 40px;
+            }
+
+            nav li, nav a, nav button{
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            .nav_link{
+                list-style: none;
+            }
+
+            .nav_link li{
+                display: inline-block;
+                padding: 0px 25px;
+            }
+
+            .nav_link li a{
+                transition: all 0.3s ease 0s;
+            }
+
+            .nav_link li a:hover{
+                color: #0088a9;
+            }
+
+            nav button{
+                border: none;
+                padding: 6px 25px;
+                border-radius: 50px;
+                cursor: pointer; 
+                background-color: #0088a9;
+                transition: all 0.3s ease 0s;
+            }
+
+            nav button:hover{
+                background-color: rgba(0, 136, 169, 0.8);
+            }
+
+            .navbar{
+                display: flex;
+                margin-top: 0px;
+                margin-bottom: 60px;
+                align-items: center;
+                padding: 10px 5%;
+                background-color: #24252A;
+                box-shadow: 0px 3px 30px 2px rgb(182, 177, 177);
+            }
+
+            .navbar img{
+                filter: brightness(0) invert(1);
+                width: 190px;
+                height: 32px;
+            }
+
+        </style>
+
+        <script>
+            function generatedaily(){
+                var x = document.getElementById("dailydate");
+                if (x && x.value)
+                {
+                    document.getElementById("dailyreport").style.display="block";
+                    document.getElementById("displaydaily").innerHTML = "" + x.value;
+                }
+                else{
+                    alert("Please select a date before generating the report!!!");
+                }
+            }
+
+            function generateweekly(){
+                var weekly = document.getElementById("weekdate");
+                if (weekly && weekly.value)
+                {
+                    document.getElementById("weeklyreport").style.display="block";
+                }
+                else{
+                    alert("Please select a date before generating the report!!!");
+                }
+            }
+
+            function generatemonthly(){
+                var year = document.getElementById("monthlyyear").value;
+                var month = document.getElementById("monthdate");
+                var fullmonth = document.getElementById("fullmonthdate");
+
+                if (year === "2021" || year === "2020")
+                {
+                    if(fullmonth && fullmonth.value)
+                    {
+                        document.getElementById("monthlyreport").style.display="block";
+                        document.getElementById("displaymonthly").innerHTML = fullmonth.value + " " + year;
+                    }
+                    else{
+                        alert("Please fill in month before generating the report!!!");
+                    }
+                }
+                else if(year === "2022")
+                {
+                    if(month && month.value)
+                    {
+                        document.getElementById("monthlyreport").style.display="block";
+                        document.getElementById("displaymonthly").innerHTML = month.value + " " + year;
+                    }
+                    else{
+                        alert("Please fill in month before generating the report!!!");
+                    }
+                }
+                else
+                {
+                    alert("Please fill in the year and month before generating the report!!!");
+                }
+            }
+
+            function showdaily(){
+                document.getElementById("dailysummary").style.display="block";
+                document.getElementById("dailyreport").style.display="none";
+                document.getElementById("button_daily").style.backgroundColor="#b90e0a";
+                document.getElementById("button_daily").style.color="white";
+
+                document.getElementById("monthlysummary").style.display="none";
+                document.getElementById("monthlyreport").style.display="none";
+                document.getElementById("button_monthly").style.backgroundColor="";
+                document.getElementById("button_monthly").style.color="";
+
+                document.getElementById("weeklysummary").style.display="none";
+                document.getElementById("weeklyreport").style.display="none";
+                document.getElementById("button_weekly").style.backgroundColor="";
+                document.getElementById("button_weekly").style.color="";
+                
+            }
+
+            function showweekly(){
+                document.getElementById("dailysummary").style.display="none";
+                document.getElementById("dailyreport").style.display="none";
+                document.getElementById("button_daily").style.backgroundColor="";
+                document.getElementById("button_daily").style.color="";
+
+                document.getElementById("weeklysummary").style.display="block";
+                document.getElementById("weeklyreport").style.display="none";
+                document.getElementById("button_weekly").style.backgroundColor="#b90e0a";
+                document.getElementById("button_weekly").style.color="white";
+
+                document.getElementById("monthlysummary").style.display="none";
+                document.getElementById("monthlyreport").style.display="none";
+                document.getElementById("button_monthly").style.backgroundColor="";
+                document.getElementById("button_monthly").style.color="";
+            }
+
+            function showmonthly(){
+                document.getElementById("dailysummary").style.display="none";
+                document.getElementById("dailyreport").style.display="none";
+                document.getElementById("button_daily").style.backgroundColor="";
+                document.getElementById("button_daily").style.color="";
+
+                document.getElementById("weeklysummary").style.display="none";
+                document.getElementById("weeklyreport").style.display="none";
+                document.getElementById("button_weekly").style.backgroundColor="";
+                document.getElementById("button_weekly").style.color="";
+
+                document.getElementById("monthlysummary").style.display="block";
+                document.getElementById("monthlyreport").style.display="none";
+                document.getElementById("button_monthly").style.backgroundColor="#b90e0a";
+                document.getElementById("button_monthly").style.color="white";
+            }
+
+            function showmonth()
+            {
+                var input = document.getElementById("monthlyyear").value;
+                var options = document.getElementById("years").childNodes;
+
+                if (input === "2021" || input === "2020")
+                {
+                    document.getElementById("fullmonthdate").style.display="inline-block";
+                }
+                else if(input === "2022")
+                {
+                    document.getElementById("monthdate").style.display="inline-block";
+                }
+                else
+                {
+                    document.getElementById("fullmonthdate").style.display="none";
+                    document.getElementById("monthdate").style.display="none";
+                }
+                
+            }
+
+            function printreport(printpage)
+            {
+                var headstr = "<html><head><title>Transaction Report</title></head><body>";
+                var footstr1 = "</";
+                var footstr2 = "body>";
+                var footerstr = footstr1 + footstr2;
+                var newstr = document.getElementById(printpage).innerHTML;
+                var oldstr = document.body.innerHTML;
+                document.body.innerHTML = headstr+newstr+footerstr;
+                window.print();
+                document.body.innerHTML = oldstr;
+                return false;
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <div class="navbar">
+            <img src="photo\lingscarslogo.png">
+            <nav>
+                <ul class ="nav_link">
+                    <li><a href="Administrator Dashboard.html"><i class=" fa fa-dashboard"></i> Dashboard</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <main>
+            <div id="transactionreport">
+                <div class="logo">
+                    <image src="photo\lingscarslogo.png" width ="180px" height="76px">
+                </div>
+
+                <div class="reportcontent">
+                    <h2 style="font-size: 22px;">Transaction Report</h2>
+                    <div class="uppercontent">
+                        <p><b>Reference Number :</b> 145060</p>
+                        <p><b>Transaction Date :</b> 2020-05-03</p>
+                        <p><b>Customer Name :</b> Chong Kha Fung</p>
+                        <p><b>Type of Service :</b> Car Leasing</p>
+                    </div>
+
+                    <div class="lowercontent">
+                        <p><b>Car Leased :</b> Audi A1 Sportback</p>
+                        <p><b>Price :</b> &#163;239.29/month</p>
+                        <p><b>Leasing Period :</b> 2 month</p>
+                        <p><b>Amount :</b> &#163;478.58</p>
+                        <p><b>Payment Method :</b> Credit Card</p>
+                        <p><b>Payment Status :</b> Successful</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="flexcontainer">
+
+                <div class="leftbuttonbox">
+
+                    <div onclick="showdaily()" id="button_daily">
+                        <p>Daily Summary</p>
+                    </div>
+
+                    <div onclick="showweekly()" id="button_weekly">
+                        <p>Weekly Summary</p>
+                    </div>
+
+                    <div onclick="showmonthly()" id="button_monthly">
+                        <p>Monthly Summary</p>
+                    </div>
+
+                </div>
+
+                <div class="rightcontentbox">
+                    <header>
+                        <h1>Transaction Record Summary</h1>
+                    </header>
+
+                    <div id="dailysummary">
+
+                        <div class="middlebox">
+                            <h2>Daily Summary</h2>
+                            <p>Select a date to view the summary of transaction records on that day</p>
+
+                            <form>
+                                <input id="dailydate" type="date">
+                                <button type="button" class="generatebutton" onclick="generatedaily()">Generate</button>
+                            </form>
+                        </div>
+                        
+                        <div id="dailyreport">
+                            <p>Showing the result on <b id="displaydaily"></b></p>
+                            <table>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Customer Name</th>
+                                    <th>Price(&#163;/month)</th>
+                                    <th>Leasing Period(month)</th>
+                                    <th>Subtotal(&#163;)</th>
+                                </tr>
+                                <tr>
+                                    <td>BMW 2 Series Gran Coup</td>
+                                    <td>Chang Yu En</td>
+                                    <td>353.84</td>
+                                    <td>2</td>
+                                    <td>707.68</td>
+                                    <td><button type="button" onclick="printreport('transactionreport')">Print</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Audi A1 Sportback</td>
+                                    <td>Chong Kha Fung</td>
+                                    <td>239.29</td>
+                                    <td>1</td>
+                                    <td>239.29</td>
+                                    <td><button type="button" onclick="printreport('transactionreport')">Print</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Ford Mustang Coupé</td>
+                                    <td>Chin Siong Hoong</td>
+                                    <td>711.68</td>
+                                    <td>3</td>
+                                    <td>2153.04</td>
+                                    <td><button type="button" onclick="printreport('transactionreport')">Print</button></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Total(&#163;)</td>
+                                    <td>3100.01</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div id="weeklysummary">
+
+                        <div class="middlebox">
+                            <h2>Weekly Summary</h2>
+                            <p>Select a date to view the summary of transaction records on that week</p>
+
+                            <form>
+                                <input id="weekdate" type="date">
+                                <button type="button" class="generatebutton" onclick="generateweekly()">Generate</button>
+                            </form>
+                        </div>
+                        
+                        <div id="weeklyreport">
+                            <p>Showing the result on <b id="displayweekly">2022-05-02 to 2022-05-08</b></p>
+                            <table>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Item Name</th>
+                                    <th>Customer Name</th>
+                                    <th>Price(&#163;/month)</th>
+                                    <th>Leasing Period(month)</th>
+                                    <th>Subtotal(&#163;)</th>
+                                </tr>
+                                <tr>
+                                    <td>2022-05-03</td>
+                                    <td>BMW 2 Series Gran Coup</td>
+                                    <td>Chang Yu En</td>
+                                    <td>353.84</td>
+                                    <td>2</td>
+                                    <td>707.68</td>
+                                    <td><button type="button" onclick="printreport('transactionreport')">Print</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2022-05-06</td>
+                                    <td>Audi A1 Sportback</td>
+                                    <td>Chong Kha Fung</td>
+                                    <td>239.29</td>
+                                    <td>1</td>
+                                    <td>239.29</td>
+                                    <td><button type="button" onclick="printreport('transactionreport')">Print</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2022-05-07</td>
+                                    <td>Ford Mustang Coupé</td>
+                                    <td>Chin Siong Hoong</td>
+                                    <td>711.68</td>
+                                    <td>3</td>
+                                    <td>2153.04</td>
+                                    <td><button type="button" onclick="printreport('transactionreport')">Print</button></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Total(&#163;)</td>
+                                    <td>3100.01</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="monthlysummary">
+
+                        <div class="middlebox">
+                            <h2>Monthly Summary</h2>
+                            <p>Select a year and a month to view the summary of transaction records on that month</p>
+
+                            <form>
+                                <input oninput="showmonth()" id="monthlyyear" list="years">
+                                <datalist id="years">
+                                    <option value="2022">
+                                    <option value="2021">
+                                    <option value="2020">
+                                </datalist>
+
+                                <input id="monthdate" list="months">
+                                <datalist id="months">
+                                    <option value="January">
+                                    <option value="February">
+                                    <option value="March">
+                                    <option value="April">
+                                    <option value="May">
+                                </datalist>
+
+                                <input id="fullmonthdate" list="fullmonths">
+                                <datalist id="fullmonths">
+                                    <option value="January">
+                                    <option value="February">
+                                    <option value="March">
+                                    <option value="April">
+                                    <option value="May">
+                                    <option value="June">
+                                    <option value="July">
+                                    <option value="August">
+                                    <option value="September">
+                                    <option value="October">
+                                    <option value="November">
+                                    <option value="December">                
+                                </datalist>
+
+                                <button type="button" class="generatebutton" onclick="generatemonthly()">Generate</button>
+                            </form>
+                        </div>
+                        
+                        <div id="monthlyreport">
+                            <p>Showing the result on <b id="displaymonthly"></b></p>
+                            <table>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Item Name</th>
+                                    <th>Customer Name</th>
+                                    <th>Price(&#163;/month)</th>
+                                    <th>Leasing Period(month)</th>
+                                    <th>Subtotal(&#163;)</th>
+                                </tr>
+                                <tr>
+                                    <td>2022-05-03</td>
+                                    <td>BMW 2 Series Gran Coup</td>
+                                    <td>Chang Yu En</td>
+                                    <td>353.84</td>
+                                    <td>2</td>
+                                    <td>707.68</td>
+                                    <td><button type="button" onclick="printreport('transactionreport')">Print</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2022-05-06</td>
+                                    <td>Audi A1 Sportback</td>
+                                    <td>Chong Kha Fung</td>
+                                    <td>239.29</td>
+                                    <td>1</td>
+                                    <td>239.29</td>
+                                    <td><button type="button" onclick="printreport('transactionreport')">Print</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2022-05-13</td>
+                                    <td>Ford Mustang Coupé</td>
+                                    <td>Chin Siong Hoong</td>
+                                    <td>711.68</td>
+                                    <td>3</td>
+                                    <td>2153.04</td>
+                                    <td><button type="button" onclick="printreport('transactionreport')">Print</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2022-05-22</td>
+                                    <td>Ford Mustang Coupé</td>
+                                    <td>Chong Kha Fung</td>
+                                    <td>711.68</td>
+                                    <td>1</td>
+                                    <td>711.68</td>
+                                    <td><button type="button" onclick="printreport('transactionreport')">Print</button></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Total(&#163;)</td>
+                                    <td>3811.69</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </main>
+
+    </body>
+</html>

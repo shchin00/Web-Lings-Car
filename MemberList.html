@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>List of Registered Members</title>
+
+        <meta charset="UTF-8">
+        <meta name="description" content="List of every members that are registered">
+        <meta name="keywords" content="LINGsCARS, members, list">
+        <meta name="author" content="Chong Kha Fung">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            *{
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .addbox{
+                display: flex;
+                height: 46px;
+                border: 1px solid #3c3431;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                margin-left: 200px;
+                padding: 0px 0px;
+            }
+
+            .addbox button{
+                font-size: 17px;
+            }
+
+            .addbox:hover{
+                background-color: #3c3431;
+                cursor: pointer;
+            }
+
+            .addbox:hover button{
+                color: white;
+                cursor: pointer;
+            }
+
+            body{
+                z-index: 100;
+                padding-top: 0px;
+                margin-top: 0px;
+            }
+
+            .box{
+                display: flex;
+            }
+            
+            header{
+                position: relative;
+            }
+
+            header div{
+                position: absolute;
+                top: 78%;
+                left: 50%;
+                transform: translate(-50%, -40%);
+                background-color: rgb(0, 0, 0,0.5);
+                color: white;
+                padding: 10px 15px 37px;
+            }
+
+            header h1, p{
+                margin-left: 15px;
+            }
+
+            header h1{
+                font-size: 60px;
+                text-align: center;
+            }
+
+            header p{
+                font-size: 17px;
+            }
+
+            main{
+                margin-left: 35px;
+                margin-right: 35px;
+                background-color: rgb(239, 237, 237);
+                border-radius: 17px;
+                padding-top: 50px;
+            }
+
+            .tableheader{
+                display: flex;
+                padding-left: 22px;
+                background-color: #3c3431;
+                color: white;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                border-top: #e1c391;
+            }
+
+            .contentcontainer{
+                display: flex;
+                padding-top: 24px;
+                padding-bottom: 24px;
+                padding-left: 22px;
+                border-bottom: 1px solid #3c3431;
+                font-size: 18px;
+            }
+
+            .dropdown-content{
+                display: none;
+                position: absolute;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+
+            .dropdown-content.show {
+                display: block;
+            }
+
+            .dropdown-content a{
+                padding: 12px 16px;
+                color: black;
+                background-color: #ede4e3;
+                display: block;
+            }
+
+            .dropdown-content a:hover{
+                background-color: #cfb7b4;
+                cursor: pointer;
+            }
+
+            .flexpicture{
+                flex: 1;
+            }
+
+            .flexcontent{
+                flex: 1;
+                padding: 40px 0px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .flexlongcontent{
+                flex: 1.5;
+                padding: 40px 0px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .flexshortcontent{
+                flex: 0.4;
+                padding: 32px 0px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .flexshortcontent i{
+                padding: 8px;
+            }
+
+            .flexshortcontent i:hover{
+                border-radius: 50%;
+                background-color: #ede4e3;
+                cursor: pointer;
+            }
+
+            .searchbox{
+                display: flex;
+                width: 15%;
+                margin-right: 20px;
+                margin-left: 860px;
+                margin-bottom: 30px;
+                border: 1px solid #3c3431;
+                border-radius: 10px;
+                padding: 7px 0px;
+            }
+
+            .transparentbox {
+                padding: 30px 0px 30px;
+                margin-left: 25px;
+                margin-right: 25px;
+                background-color: black;
+                opacity: 0.5;
+            }
+
+            .searchbox input, button{
+                background-color: transparent;
+                border: 0;
+            }
+
+            .searchbox input {
+                margin-left: 10px;
+                margin-right: 4px;
+            }
+
+            .searchbutton{
+                width: 20px;
+            }
+
+            .searchbutton:hover {
+                cursor: pointer;
+                color: #cfb7b4;
+            }
+
+            #updatecontainer,
+            #createcontainer {
+                display: none;
+                position: fixed;
+                top: 32%;
+                left: 33%;
+                width: 35%;
+                box-shadow: 0px 16px 24px 0px rgba(0,0,0,0.8);
+                background-color: white;
+                z-index: 101;
+                border-radius: 10px;
+            }
+
+            #hiddencontainer button{
+                padding: 12px 30px;
+                font-size: 16px;
+                background-color: #3c3431;
+                color: white;
+                
+            }
+
+            #udtbutton{
+                margin-left: 90px;
+                margin-bottom: 20px;
+                margin-top: 40px;
+            }
+
+            #udtbutton:hover{
+                background-color: #3cb043;
+                cursor: pointer;
+            }
+
+            #cclbutton{
+                float: right;
+                margin-top: 40px;
+                margin-right: 100px;
+            }
+
+            #cclbutton:hover{
+                background-color: #b90e0a;
+                cursor: pointer;
+            }
+
+            #hiddencontainer h2{
+                display: block;
+                text-align: center;
+                color: #3c3431;
+                font-size: 27px;
+            }
+
+            #hiddencontainer p{
+                font-size: 20px;
+                color: #3c3431;
+            }
+
+            #hiddencontainer input{
+                margin-left: 10px;
+                width: 250px;
+                border-color: #3c3431;
+                background: transparent;
+                border-radius: 7px;
+                border-top: 2.5px solid gray;
+                border-left: 2.5px solid gray;
+                border-right: 2.5px solid #ececec;
+                border-bottom: 2.5px solid #ececec;
+            }
+
+            #hiddencontainer input[type="text"],
+            #hiddencontainer input[type="email"],
+            #hiddencontainer input[type="number"] {
+                font-size: 16px;
+                height: 32px;
+                color: #3c3431;
+            }
+
+            #darkbackground{
+                display: none;
+                background: rgba(0, 0, 0, .6);
+                position: fixed;
+                top: 0; left: 0;
+                width: 100vw; height: 100vw;
+                z-index: 100;
+            }
+
+            .inputbox{
+                margin-left: 55px;
+                margin-top: 40px;
+            }
+
+            nav li, nav a, nav button{
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            .nav_link{
+                list-style: none;
+            }
+
+            .nav_link li{
+                display: inline-block;
+                padding: 0px 25px;
+            }
+
+            .nav_link li a{
+                transition: all 0.3s ease 0s;
+            }
+
+            .nav_link li a:hover{
+                color: #0088a9;
+            }
+
+            nav button{
+                border: none;
+                padding: 6px 25px;
+                border-radius: 50px;
+                cursor: pointer; 
+                background-color: #0088a9;
+                transition: all 0.3s ease 0s;
+            }
+
+            nav button:hover{
+                background-color: rgba(0, 136, 169, 0.8);
+            }
+
+            .navbar{
+                display: flex;
+                margin-top: 0px;
+                margin-bottom: 60px;
+                align-items: center;
+                padding: 10px 5%;
+                background-color: #24252A;
+                box-shadow: 0px 3px 30px 2px rgb(182, 177, 177);
+            }
+
+            .navbar img{
+                filter: brightness(0) invert(1);
+                width: 190px;
+                height: 32px;
+            }
+
+        </style>
+
+        <script>
+            function displaymenu1(){
+                document.getElementById("dropdown1").classList.toggle("show");
+            }
+
+            function displaymenu2(){
+                document.getElementById("dropdown2").classList.toggle("show");
+            }
+
+            function displaymenu3(){
+                document.getElementById("dropdown3").classList.toggle("show");
+            }
+
+            window.onclick = function(closemenu) {
+                if (!closemenu.target.matches('.material-symbols-outlined')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+
+            function deletemember(){
+                if(confirm("Are you sure you want to delete the member?"))
+                {
+                    alert("The member is successfully deleted.");
+                }
+            }
+
+            function showupdate(){
+                document.getElementById("updatecontainer").style.display="block";
+                document.getElementById("darkbackground").style.display="block";
+            }
+
+            function hideupdate(){
+                document.getElementById("updatecontainer").style.display="none";
+                document.getElementById("darkbackground").style.display="none";
+            }
+
+            function showcreate(){
+                document.getElementById("createcontainer").style.display="block";
+                document.getElementById("darkbackground").style.display="block";
+            }
+
+            function hidecreate(){
+                document.getElementById("createcontainer").style.display="none";
+                document.getElementById("darkbackground").style.display="none";
+            }
+
+            function checkinput(name, email){
+                var letters = /^[A-Za-z]+$/;
+                var special = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+                if(!name.value && !email.value)
+                {
+                    event.preventDefault();
+                    alert("Name and email cannot be empty!!!");
+                    return false;
+                }
+                else if(!name.value)
+                {
+                    event.preventDefault();
+                    alert("Name cannot be empty!!!");
+                    return false;
+                }
+                else if(!email.value)
+                {
+                    event.preventDefault();
+                    alert("Email cannot be empty!!!");
+                    return false;
+                }
+
+                if (!name.value.match(letters))
+                {
+                    event.preventDefault();
+                    alert("Please enter only letter for the name of member!!!");
+                    return false;
+                }
+                // else if (special.test(name))
+                // {
+                //     event.preventDefault();
+                //     alert("Please do not enter special characters for the name of member!!!");
+                //     return false;
+                // }
+                else
+                {
+                    return true;
+                }
+            }
+
+            function checkinput(name, email, accnumber){
+                var letters = /^[A-Za-z]+$/;
+                var special = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+                if(!name.value || !email.value || !accnumber.value)
+                {
+                    event.preventDefault();
+                    alert("Please fill in all the fields!!!");
+                    return false;
+                }
+
+                if (!name.value.match(letters))
+                {
+                    event.preventDefault();
+                    alert("Please enter only letter for the name of member!!!");
+                    return false;
+                }
+                // else if (special.test(name))
+                // {
+                //     event.preventDefault();
+                //     alert("Please do not enter special characters for name of member!!!");
+                //     return false;
+                // }
+                else if(accnumber.value.length != 10)
+                {
+                    event.preventDefault();
+                    alert("Please enter the correct format for account number!!! (10 numbers)");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+
+
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <div id="darkbackground"></div>
+        <div class="navbar">
+            <img src="photo\lingscarslogo.png">
+            <nav>
+                <ul class ="nav_link">
+                    <li><a href="Administrator Dashboard.html"><i class=" fa fa-dashboard"></i> Dashboard</a></li>
+                </ul>
+            </nav>
+        </div>
+
+       <header>
+            <img src="photo\members1.jpg" alt="picture with many hands holding together" width="100%" height="650px"> 
+           <div>
+            <h1>Member List</h1>
+            <p>Below are members who had registered an account. You can create, update or delete a member account manually.</p>
+            <p>*Note: Please be aware that once an account is deleted, it cannot be recovered anymore. So, make sure you deleted the right account and check before
+                you perform the action.
+                </p>
+        </div>
+       </header>
+
+       <br><br><br><br><br>
+
+       <div id="hiddencontainer">
+            <div id="updatecontainer">
+
+                <form>
+                    <h2>Update Member</h2>
+                    <div class="inputbox">
+                        <p><b>Name</b><input name="updatename" type="text" placeholder="Type name here..." style="margin-left: 85px;"></p>
+                        <p><b>Email Address</b><input name="updateemail" type="email" placeholder="Type email here..."></p>
+                    </div>
+
+                    <button id="udtbutton" type="submit" onclick="checkinput(updatename, updateemail)">Update</button>
+                    <button onclick="hideupdate()" id="cclbutton" type="reset">Cancel</button>
+                </form>
+
+            </div>
+            
+            <div id="createcontainer">
+
+                <form>
+                    <h2>Create Member</h2>
+                    <div class="inputbox">
+                        <p><b>Name</b><input name="createname" type="text" placeholder="Type name here..." style="margin-left: 106px;"></p>
+                        <p><b>Email Address</b><input name="createemail" type="email" placeholder="Type email here..." style="margin-left: 32px;"></p>
+                        <p><b>Account Number</b><input name="createaccnum" type="number" placeholder="Type account number here..."></p>
+                    </div>
+
+                    <button id="udtbutton" type="submit" onclick="checkinput(createname, createemail, createaccnum)">Update</button>
+                    <button onclick="hidecreate()" id="cclbutton" type="reset">Cancel</button>
+                </form>
+
+            </div>
+        </div>
+
+       <main>
+           <div class="box">
+                <div class="addbox">
+                    <button onclick="showcreate()">Add new member</button>
+                </div>
+
+                <form class="searchbox" method="get" action="">
+                    <input type="text" placeholder="Search members..."> 
+                    <button type="submit" class="searchbutton"><span class="material-symbols-outlined">search</span></button>
+                </form>
+            </div>
+
+            <div class="tableheader">
+                <div style="flex: 1;">
+                </div>
+
+                <div style="flex: 1.5;">
+                    <b>NAME</b>
+                </div>
+
+                <div style="flex: 1.5;">
+                    <b>LOGIN EMAIL</b>
+                </div>
+
+                <div style="flex: 1;">
+                    <b>LAST LOGIN</b>
+                </div>
+
+                <div style="flex: 1;">
+                    <b>ACCOUNT NUMBER</b>
+                </div>
+
+                <div style="flex: 0.4;">
+                </div>
+           </div>
+
+            <div class="contentcontainer">
+                <div class="flexpicture">
+                    <img style="border-radius: 50%;" src="photo\profile.png" width="128" height="128">
+                </div>
+
+                <div class="flexlongcontent">
+                    <b>Chong Kha Fung</b>
+                </div>
+
+                <div class="flexlongcontent">
+                    <b>Khafung@gmail.com</b>
+                </div>
+
+                <div class="flexcontent">
+                    <b>10/5/2022</b>
+                </div>
+
+                <div class="flexcontent">
+                    <b>1351281906</b>
+                </div>
+
+                <div class="flexshortcontent">
+                    <i onmousedown="displaymenu1()" class="material-symbols-outlined">more_vert</i>
+                    <div id="dropdown1" class="dropdown-content">
+                        <a onclick="showupdate()">Update</a>
+                        <a onclick="deletemember()">Delete</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentcontainer">
+                <div class="flexpicture">
+                    <img style="border-radius: 50%;" src="photo\profile.png" width="128" height="128">
+                </div>
+
+                <div class="flexlongcontent">
+                    <b>Chin Siong Hoong</b>
+                </div>
+
+                <div class="flexlongcontent">
+                    <b>CSH@gmail.com</b>
+                </div>
+
+                <div class="flexcontent">
+                    <b>10/5/2022</b>
+                </div>
+
+                <div class="flexcontent">
+                    <b>1112319500</b>
+                </div>
+
+                <div class="flexshortcontent">
+                    <i onclick="displaymenu2()" class="material-symbols-outlined">more_vert</i>
+                    <div id="dropdown2" class="dropdown-content">
+                        <a onclick="showupdate()">Update</a>
+                        <a onclick="deletemember()">Delete</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentcontainer" style="border-style: none;">
+                <div class="flexpicture">
+                    <img style="border-radius: 50%;" src="photo\profile.png" width="128" height="128">
+                </div>
+
+                <div class="flexlongcontent">
+                    <b>Chang Yu En</b>
+                </div>
+
+                <div class="flexlongcontent">
+                    <b>Chang@outlook.com</b>
+                </div>
+
+                <div class="flexcontent">
+                    <b>9/5/2022</b>
+                </div>
+
+                <div class="flexcontent">
+                    <b>1141215000</b>
+                </div>
+
+                <div class="flexshortcontent">
+                    <i onmousedown="displaymenu3()" class="material-symbols-outlined">more_vert</i>
+                    <div id="dropdown3" class="dropdown-content">
+                        <a onclick="showupdate()">Update</a>
+                        <a onclick="deletemember()">Delete</a>
+                    </div>
+                </div>
+            </div>
+       </main>
+    </body>
+
+    <br><br>
+</html>

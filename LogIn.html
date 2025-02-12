@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Registration</title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>    
+        #form{
+            margin: 30px 600px;
+            border-radius: 10px;
+            background-color: rgb(176, 252, 253);
+            width: 300px;
+            padding: 10px;
+            box-shadow: 0px 3px 25px 1px rgb(198, 193, 193);;
+        }
+        
+        #para1{
+            margin-top: 1rem;
+            
+        }
+
+        label{
+            margin: 10px 0;
+            display: block;
+        }
+
+        h1, h2{
+            text-align: center;
+        }
+
+        body{
+            background-color: bisque;
+        }
+
+        .inputControl input{
+            width: 250px;
+        
+        }
+
+        .inputControl:focus{
+            outline: 0; 
+        }
+
+        .setSucess{
+            border-color: green;
+        } 
+
+        .setError{
+            border-color: red;
+        }
+
+        .inputControl small{
+            color: rgb(7, 3, 107);
+            font-size: 10px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="photo\lingscarslogo.png">
+        <nav>
+            <ul class ="nav_link">
+                <li><a href="Home.html"><i class=" fa fa-fw fa-home"></i>Home</a></li>
+                <li><a href="member_dashboard.html"><i class=" fa fa-dashboard"></i> Dashboard</a></li>
+                <li><a href="Item.html">Cars</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropbtn">Category</a>
+                     <div class="dropdown-content">
+                        <a href="#">element</a>
+                        <a href="#">element</a>
+                        <a href="#">element</a>
+                     </div>
+                </li>
+                <li><a href="Cartpage.html">Cart</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="dropdown">
+            <button>Log In</button>
+             <div class="dropdown-content">
+               <a  onclick="openPopup()">Log in</a>
+               <a  onclick="openPopup()">Log in as Dealer</a>
+             </div>
+        </div>
+    </header>
+
+        <div id="form">
+        <h1>LingsCar.com</h1>
+        <h2>Sign Up</h2>
+        <form method="post" action="register_action_page.php" enctype="multipart/form-data" name ="myForm" id="myForm" onsubmit="return validate()">
+
+                <div class="inputControl">
+                <label for ="fname">Name:</label>
+                <input type="text" id="fname" name="fname">
+                </div>
+             
+                <div class="inputControl">
+                <label for ="email">Email:</label>
+                <input type="text" id ="email" name="email">
+                </div>
+    
+                <div class="inputControl">
+                <label for ="password">Password:</label>
+                <input type="password" id ="password" name="password"><br>
+                <small>6 digits, must contain at least 1 UPPERCASE, LOWERCASE, special charater and number.</small>
+                </div>
+                <button id ="para1" type="submit" name ="submit" value ="Accept">Sign Up</button>
+        </form>
+        </div>
+
+        <script>
+
+            const fname = document.getElementById("fname");
+            const lname = document.getElementById("lname");
+            const email = document.getElementById("email");
+            const password = document.getElementById("password");
+            const myform = document.getElementById("myForm");
+    
+            function nameValidate(name){
+    
+            return /^[A-Z][a-z]{1,20}$/.test(name);
+            }
+    
+            function emailValidate(email){
+    
+            return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+    
+            }
+    
+            function passwordValidate(password){
+                return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/.test(password);
+            }
+    
+    
+          
+
+      function validate(){
+    
+        if(fname.value == ""){
+            alert("Please Enter your first name!");
+            fname.focus();
+
+            return false;
+         }
+
+      if(!nameValidate(fname.value)){
+        alert("FIRST NAME MUST START WITH UPPERCASE LETTER!");
+        fname.focus();
+  
+        return false;
+        }
+
+      if (lname.value == ""){
+        alert("Please Enter Last Name!");
+        lname.focus();
+  
+        return false;
+      }
+
+      if(!nameValidate(lname.value)){
+        alert("LAST NAME MUST START WITH UPPERCASE LETTER!");
+        lname.focus();
+ 
+        return false;
+        }
+
+      if (email.value == ""){
+        alert("Email is Required!");
+        email.focus();
+   
+        return false;
+      }
+
+      if (!emailValidate(email.value)){
+        alert("Invalid Email Format");
+        email.focus();
+     
+        return false;
+      }
+
+      if (password.value == ""){
+        alert("Please Enter a Password!");
+        password.focus();
+
+        return false;
+      }
+
+      if(!passwordValidate(password.value)){
+        alert("Invalid Password");
+        password.focus();
+
+        return false;
+      }
+
+    
+            return true;
+        }
+    
+        </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+        <meta name="description" content="CartPage">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title style="font-family: 'Times New Roman', Times, serif;">Cart Page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body{
+            background: #fff;
+            min-height: 100vh;
+            vertical-align: middle;
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 100px;
+          
+        }
+
+        .title{
+            margin-bottom: 2vh;
+        }
+
+        .cate{
+            margin-left: 160px;
+        }
+
+        .interface{
+            width: 1200px;
+            box-shadow: 0 4px 8px 0 rgb(0, 0, 0);
+            border-radius: 1rem;
+            border: transparent;
+           
+        }
+
+        .cart{
+            background-color: rgb(238, 254, 255);
+            padding: 4vh 5vh;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+        }
+
+        .summary{
+            background-color: rgb(209, 235, 248);
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            padding: 4vh;  
+        }
+
+        .row{
+            margin: 0;
+        }
+
+        .main{
+            margin: 0;
+            padding: 2vh 0;
+            width: 100%;
+        }
+
+        .leas{
+            padding: 1vh;
+        }
+
+        .quantity{
+            margin-left: 90px;
+        }
+
+        .price{
+            margin-left: 160px;
+        }
+
+        .quantity2{
+            margin-left: 122px;
+        }
+
+        .price2{
+            margin-left: 160px;
+        }
+
+        .quantity3{
+            margin-left: 135px;
+        }
+
+        .price3{
+            margin-left: 160px;
+        }
+
+        .leas2{
+            padding: 1vh;
+            margin-left: 52px;
+        }
+
+        .leas3{
+            padding: 1vh;
+            margin-left: 85px;
+        }
+
+        .leas4{
+            padding: 1vh;
+            margin-left: 98px;
+        }
+
+        .leas5{
+            padding: 1vh;
+            margin-left: 100px;
+        }
+
+        .remove{
+            margin-left: 65px;
+            font-size: 0.7rem;
+        }
+
+        img{
+            width: 6rem;
+        }
+        
+        .MakePay{
+            background-color: #000;
+            border-color: #000;
+            color: white;
+            width: 340px;
+            font-size: 2ch;
+            margin-top: 4vh;
+            padding: 1vh;
+            border-radius: 0;
+        }
+
+        .MakePay:hover{
+            color: white;
+        }
+
+        .backtoshop{
+            display: inline;
+            justify-content: center; 
+            margin-top: 3rem; 
+            font-size: 2ch;
+        }
+    </style>
+</head>
+
+  <body>
+        <main>
+            <div class="interface">
+                <div class="row">
+                    <div class="col-md-8 cart">
+                        <div class="title">
+                            <div class="leas"><h1><b>Item Cart</b></h1></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="cate"><b>ITEM</b></div>
+                            <div class="cate"><b>Quantity</b></div>
+                            <div class="cate"><b>Price</b></div>
+                        </div>
+                        
+ 
+                        <div class="row border-top border-bottom">
+                            <div class="row main align-items-center">
+                                <div class="leas"><img class="img" src="photo\bmw-2-series-gran-coupe.jpg"></div>
+                                <div class="leas">
+                                    <div class="row text-muted">BMW</div>
+                                    <div class="row">BMW 2 Series Gran Coupé</div>
+                                </div>
+                                <div class="quantity">1</div>
+                                <div class="price">&#163; 353.84/month <span class="remove">&#10005;</span></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="row main align-items-center">
+                                <div class="leas"><img class="img" src="photo\5e9174661a274eca89fd17ee4899faa4_750x420.jpg"></div>
+                                <div class="leas">
+                                    <div class="row text-muted">Ford</div>
+                                    <div class="row">Ford Mustang Coupé</div>
+                                </div>
+                                <div class="quantity2">1</div>
+                                <div class="price2">&#163; 711.68/month <span class="remove">&#10005;</span></div>
+                            </div>
+                        </div>
+
+                        <div class="row border-top border-bottom">
+                            <div class="row main align-items-center">
+                                <div class="leas"><img class="img" src="photo\2019-audi-a1-sportback.jpg"></div>
+                                <div class="leas">
+                                    <div class="row text-muted">Audi</div>
+                                    <div class="row">Audi A1 Sportback</div>
+                                </div>
+                                <div class="quantity3">1</div>
+                                <div class="price3">&#163; 239.29/month <span class="remove">&#10005;</span></div>
+                            </div>
+                        </div>
+
+                        <a href="Home.html"><button class="backtoshop">Back to Shop</button></a>
+                        <a href="member_dashboard.html" style="float: right;"><button class="backtoshop">Back to Dashboard</button></a>
+                    </div>
+
+                    <div class="col-md-4 summary">
+                        <div><h2><b>Summary</b></h2></div><hr>
+                       
+                        <div class="row">
+                            <div class="leas">BMW 2 Series Gran Coupé </div>
+                            <div class="leas2">&#163;353.84/month</div><br>
+                        </div>
+                        <div class="row">
+                            <div class="leas">Ford Mustang Coupé</div>
+                            <div class="leas3">&#163;711.68/month</div><br>
+                        </div>
+                        <div class="row">
+                            <div class="leas">Audi A1 Sportback</div>
+                            <div class="leas4">&#163;239.29/month</div><br>
+                        </div><br><br><br>
+
+                        <div class="row" style="border-top: 2px solid rgb(0, 0, 0); padding: 0vh;">
+                            <div class="leas"><b>TOTAL PRICE</b></div>
+                            <div class="leas5">&#163; <b>1304.81/month</b></div><br><br><br><br>
+                        </div>
+                        <a href="Payment.html"><button class="MakePay">Make Payment</button></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+  </body>
+
+</html>
