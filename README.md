@@ -1,2 +1,2 @@
 # Web-Lings-Car
-Full web development 
+This a an academic assigment project of developing a car leasing website using pure HTML, CSS, Javascript, and php. 
